@@ -1,0 +1,10 @@
+{
+  "description": "Remove Events panel.", 
+  "name": "NothingToDo", 
+  "shell-version": [
+    "3.2", 
+    "3.2.1"
+  ], 
+  "url": "", 
+  "uuid": "NothingToDo@obsidien.github.com"
+}
