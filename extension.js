@@ -7,14 +7,8 @@ function NothingToDo() {
 
 NothingToDo.prototype = {
     _init: function() {
-        function getChildByName (a_parent, name) {
-            return a_parent.get_children().filter(
-                    function(elem){
-                        return elem.name == name
-                    })[0];
-        }
-        this.items = getChildByName(Main.panel._dateMenu.menu.box, 'calendarArea').get_children();
         let planning = Main.panel._dateMenu._eventList.actor.get_parent();
+        this.items = planning.get_parent().get_children();
         this.index = this.items.indexOf(planning);
     },
     
