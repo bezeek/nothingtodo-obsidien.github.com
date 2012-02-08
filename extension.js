@@ -12,14 +12,16 @@ NothingToDo.prototype = {
         this.index = this.items.indexOf(planning);
     },
     
-    disable: function() {
-        this.items[this.index].show();
-        this.items[(this.index == 0) ? this.index+1 : this.index-1].show();
-    },
-    
-    enable: function() {
+    enable: function() {        
         this.items[this.index].hide();
         this.items[(this.index == 0) ? this.index+1 : this.index-1].hide();
+        Main.panel._dateMenu.menu._arrowAlignment=0.5;
+    },
+    
+    disable: function() {        
+        this.items[this.index].show();
+        this.items[(this.index == 0) ? this.index+1 : this.index-1].show();
+        Main.panel._dateMenu.menu._arrowAlignment=0.25;
     }
 }
 
