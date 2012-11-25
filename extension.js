@@ -3,18 +3,16 @@ const Main = imports.ui.main
 
 function init() {}
 
-let items, index
-function enable() { 
-	let planning = Main.panel._dateMenu._eventList.actor.get_parent()
-	items = planning.get_parent().get_children()
-	index = items.indexOf(planning)
-	
-	items[index].hide()
-	items[(index == 0) ? index+1 : index-1].hide()
-	Main.panel._dateMenu.menu._arrowAlignment = 0.50
+let dateMenu, calendarEventsArea, oldAlignment
+
+function enable() {
+	dateMenu = Main.panel.statusArea.dateMenu
+	calendarEventsArea = dateMenu._eventList.actor.get_parent()
+	oldAlignment = dateMenu.menu._arrowAlignment
+	calendarEventsArea.hide()
+	dateMenu.menu._arrowAlignment = 0.50
 }
 function disable() {
-	items[index].show()
-	items[(index == 0) ? index+1 : index-1].show()
-	Main.panel._dateMenu.menu._arrowAlignment = 0.25
+	calendarEventsArea.show()
+	dateMenu.menu._arrowAlignment = oldAlignment
 }
